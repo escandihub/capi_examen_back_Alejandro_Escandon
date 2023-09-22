@@ -21,7 +21,7 @@ class userDomicilioFactory extends Factory
             'colonia' => $this->faker->streetAddress(),
             'cp' => rand(123, 450),
             'ciudad' => $this->faker->city(),
-            'fecha_nacimento' => '2023-09-22',
+            'fecha_nacimento' => $this->faker->dateTimeBetween('-50 years', 'now')->format('Y-m-d'),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::yesterday()
         ];

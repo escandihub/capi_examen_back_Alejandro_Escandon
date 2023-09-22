@@ -12,6 +12,7 @@ class userDomicilio extends Model
     
     protected $fillable = ['user_id','domicilio','numero_exterior','colonia', 'cp','ciudad','fecha_nacimento'];
     protected $appends = ['edad_usuario'];
+    // protected $withs = ['edad_usuario'];
 
     function edad() {
         return \Carbon\carbon::parse($this->attributes['fecha_nacimento'])->age;

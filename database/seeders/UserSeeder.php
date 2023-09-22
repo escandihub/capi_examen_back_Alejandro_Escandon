@@ -15,8 +15,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        userDomicilio::factory(2)->create([
-            'user_id' => User::factory(1)->create()
-        ]);
+        User::factory(100)->create()->each(function($usuario){
+            userDomicilio::factory(1)->create([
+                'user_id' => $usuario->id
+            ]);
+        });
     }
 }

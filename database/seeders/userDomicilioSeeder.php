@@ -16,7 +16,7 @@ class userDomicilioSeeder extends Seeder
     public function run()
     {
         userDomicilio::factory(2)->create([
-            'user_id' => User::factory(1)->create()
+            'user_id' => User::factory()->create()->id
         ]);
     }
 }
