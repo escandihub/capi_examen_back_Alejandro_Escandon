@@ -14,15 +14,11 @@ class userDomicilio extends Model
     protected $appends = ['edad_usuario'];
 
     function edad() {
-        $fecha = $this->fecha_nacimento;
-        $dias = explode("-", $fecha, 3);
-        $dias = mktime(0,0,0,$dias[1],$dias[0],$dias[2]);
-        $edad = (int)((time()-$dias)/31556926 );
-        return $edad;
+        return \Carbon\carbon::parse($this->attributes['fecha_nacimento'])->age;
     }
 
     public function getEdadUsuarioAttribute()
 {
-    return $this->edad;
+    return $this->edad();
 }
 }
